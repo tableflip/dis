@@ -11,7 +11,6 @@ var sass = require('node-sass')
 var findFacts = require('../lib/find-facts')
 
 module.exports = function () {
-  console.log('css')
   var base = process.cwd()
   var input = path.join(base, 'pages', 'main.scss')
   var output = path.join(base, 'dist', 'bundle.css')
