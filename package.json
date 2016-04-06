@@ -1,5 +1,5 @@
 {
-  "name": "dis",
+  "name": "@tableflip/dis",
   "version": "0.1.0",
   "description": "Putting things in their place",
   "bin": {
