@@ -12,11 +12,18 @@ var async = require('async')
 var mkdirp = require('mkdirp')
 var findFacts = require('../lib/find-facts')
 var findContent = require('../lib/find-content')
+
+// TODO: BYO helper functions.
 var md = require('markdown-it')({
   html: true,
   breaks: true,
   linkify: true
 })
+// TODO: this is here for backwards compat. Again, todo: BYO helper functions.
+var toSlug = function (string) {
+  string = string.toString()
+  return string.toLowerCase().split(' ').join('-')
+}
 
 // Find all the jades, render them and write them to `/dist`
 module.exports = function () {
@@ -54,6 +61,7 @@ module.exports = function () {
         facts: facts,
         content: findContent(path.dirname(task.input)),
         md: md,
+        toSlug: toSlug,
         pretty: true
       }
       task.html = jade.renderFile(task.input, locals)
