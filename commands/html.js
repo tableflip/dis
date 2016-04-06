@@ -52,7 +52,7 @@ module.exports = function () {
       var locals = {
         meta: task.meta,
         facts: facts,
-        content: findContent(task.tpl),
+        content: findContent(path.dirname(task.input)),
         md: md,
         pretty: true
       }
